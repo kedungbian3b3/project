@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff: one
+  available: false
+  slotid: 1
+  parkingfee: one
+  paymentmethod: one
+  customer: one
+  car: MyText
+  numberplate: MyText
+  date: 2023-12-18 14:04:40
+
+two:
+  staff: two
+  available: false
+  slotid: 1
+  parkingfee: two
+  paymentmethod: two
+  customer: two
+  car: MyText
+  numberplate: MyText
+  date: 2023-12-18 14:04:40

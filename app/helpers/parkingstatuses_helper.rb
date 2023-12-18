@@ -1,0 +1,2 @@
+module ParkingstatusesHelper
+end

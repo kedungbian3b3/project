@@ -1,0 +1,2 @@
+class Parkingfee < ApplicationRecord
+end

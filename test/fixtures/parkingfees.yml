@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numtime: MyText
+  money: 1
+
+two:
+  numtime: MyText
+  money: 1

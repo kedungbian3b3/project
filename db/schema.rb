@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_130018) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_18_140440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_130018) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.integer "customerid"
+    t.integer "phone"
+    t.text "email"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -61,6 +71,44 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_130018) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "parkingfees", force: :cascade do |t|
+    t.text "numtime"
+    t.integer "money"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parkingstatuses", force: :cascade do |t|
+    t.bigint "staff_id", null: false
+    t.boolean "available"
+    t.integer "slotid"
+    t.bigint "parkingfee_id", null: false
+    t.bigint "paymentmethod_id", null: false
+    t.bigint "customer_id", null: false
+    t.text "car"
+    t.text "numberplate"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_parkingstatuses_on_customer_id"
+    t.index ["parkingfee_id"], name: "index_parkingstatuses_on_parkingfee_id"
+    t.index ["paymentmethod_id"], name: "index_parkingstatuses_on_paymentmethod_id"
+    t.index ["staff_id"], name: "index_parkingstatuses_on_staff_id"
+  end
+
+  create_table "paymentmethods", force: :cascade do |t|
+    t.text "method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "name"
+    t.integer "staffid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,4 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_130018) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "parkingstatuses", "customers"
+  add_foreign_key "parkingstatuses", "parkingfees"
+  add_foreign_key "parkingstatuses", "paymentmethods"
+  add_foreign_key "parkingstatuses", "staffs"
 end
