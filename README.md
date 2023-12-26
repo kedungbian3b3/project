@@ -2,9 +2,9 @@
 
 ## GROUP <add-group-name>
 
-- Member 1: <add-name>
-- Member 2: <add-name>
-- Member 3: <add-name>
+- Member 1: Trần Việt Dũng - 21070726
+- Member 2: Nguyễn Phương Uyên - 21070734
+- Member 3: Nguyễn Thị Bích Ngọc - 21070260
 - Member 4: <add-name>
 
 ## Starting server
