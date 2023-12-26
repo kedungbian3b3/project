@@ -1,16 +1,157 @@
 <!DOCTYPE html>
 <html class="h-full antialiased">
-  <%= render "shared/head" %>
+    <%= render "shared/head" %>
+  
+    <body class="font-sans font-normal leading-normal text-gray-800 bg-white flex flex-col min-h-screen ">
+  
+      <header>
+        <%= render "shared/flash_notice" %>
+        <%= render "shared/navbar" %>   
+        </header>
+        <main class="flex-grow">
+        <%= content_for?(:content) ? yield(:content) : yield %>
+      </main>
+    </body>
+    </html>
+    
+<html lang="en">
+    <head>
+  <h1 class="center1">Smart</h1>
+  <h2 class="center2">Car Parking</h2>
 
-  <body class="font-sans font-normal leading-normal text-gray-800 bg-white flex flex-col min-h-screen ">
+    <style>
+    h1.center1{
+        text-align: center;
+  font-size: 90px;
+  color: #CCF381;
+  font-weight: bold;
+  padding-bottom: (0.0001)px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* thêm bóng đổ cho chữ */
+  transition: all 0.2s ease-in-out; /* thêm hiệu ứng transition cho chữ */
+    }
+    h2.center2{
+        text-align: center;
+  font-size: 90px;
+  color: #CCF381;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* thêm bóng đổ cho chữ */
+  transition: all 0.2s ease-in-out; /* thêm hiệu ứng transition cho chữ */
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        html, body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-image: url('https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/406846374_710616137697388_1481163385638310971_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeE7Xiq2ebZuQsEsP43Ope2icWCPKXMSIFxxYI8pcxIgXGXUGMsxLIOqRpSXvdaclDFbV0y-dfuuFc45ZarBeeMP&_nc_ohc=bFug1Q1ktq8AX81vRaT&_nc_ht=scontent.fhan2-4.fna&oh=03_AdQii-YJRQ1wc3gSsHEFfHu_1zsyC5Ek975qvIxDm6ys-A&oe=65B22AAD'); /* Đường dẫn của hình nền */
+            background-size: cover; /* Kích thước hình nền sẽ che phủ toàn bộ phần tử body */
+            background-repeat: no-repeat;
+        }
 
-    <header>
-      <%= render "shared/flash_notice" %>
-      <%= render "shared/navbar" %>
-    </header>
+        h1 {
+            color: #333;
+        }
 
-    <main class="flex-grow">
-      <%= content_for?(:content) ? yield(:content) : yield %>
-    </main>
-  </body>
-</html>
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <div class="search-bar">
+  <form id="search-form" method="GET">
+    <input id="search-input" type="text" name="query" placeholder="Tìm kiếm...">
+    <button type="submit" onclick="searchGoogle(event)">Tìm kiếm</button>
+  </form>
+</div>
+
+<script>
+  function searchGoogle(event) {
+    event.preventDefault(); // Ngăn chặn gửi yêu cầu tìm kiếm mặc định
+    var query = document.getElementById('search-input').value;
+    var googleUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+    window.open(googleUrl, '_blank');
+  }
+</script>
+<style>
+  .search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+  padding: 5px 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+<h3 class="center3 italic"> "The key to unlocking the gate of convenience - Park here and rest without worry!"</h3>
+ <style>
+ h3.center3{
+    font-size: 40px;
+    font-family: Blacker Sans Text;
+    font-weight: 800;
+color: #CCF381;
+ }
+</style>
+
+}
+</style>
+<div class="image-slider">
+  <div class="image-container">
+    <img src="https://assetsb2bblog.bsbportal.com/wp-content/uploads/2022/05/iot-based-smart-parking-scaled.jpg" alt="Image 1">
+  </div>
+  <div class="image-container">
+    <img src="https://storage.googleapis.com/sunshine-advertising-website.appspot.com/website_sunshinegroup_wp/uploads/1/2019/12/dot-nhap-bai-gui-xe-3-1024x683.jpg" alt="Image 2">
+  </div>
+  <div class="image-container">
+    <img src="https://europarkingservices.com/wp-content/uploads/2019/09/Vehicle-Parking.jpg" alt="Image 3">
+  </div>
+</div>
+<style>
+.image-slider {
+  display: flex;
+}
+
+.image-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.image-slider img {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image-slider img.active {
+  opacity: 1;
+}
+
+</style>
+<script>
+    const images = document.querySelectorAll('.image-slider img');
+    let currentImage = 0;
+
+    function showNextImage() {
+      images[currentImage].classList.remove('active');
+      currentImage = (currentImage + 1) % images.length;
+      images[currentImage].classList.add('active');
+    }
+
+    setInterval(showNextImage, 2000); // Thay đổi hình ảnh sau mỗi 3 giây
+  

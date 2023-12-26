@@ -15,7 +15,7 @@
   <ul class="text-slate-700">
       <li>
         <p class="font-semibold">Staff:</p>
-        <p><%= @parkingstatus.staff %></p>
+        <p><%= @parkingstatus.staff.name %></p>
       </li>
       <li>
         <p class="font-semibold">Available:</p>
@@ -27,15 +27,15 @@
       </li>
       <li>
         <p class="font-semibold">Parkingfee:</p>
-        <p><%= @parkingstatus.parkingfee %></p>
+        <p><%= @parkingstatus.parkingfee.numtime %></p>
       </li>
       <li>
         <p class="font-semibold">Paymentmethod:</p>
-        <p><%= @parkingstatus.paymentmethod %></p>
+        <p><%= @parkingstatus.paymentmethod.method %></p>
       </li>
       <li>
         <p class="font-semibold">Customer:</p>
-        <p><%= @parkingstatus.customer %></p>
+        <p><%= @parkingstatus.customer.name %></p>
       </li>
       <li>
         <p class="font-semibold">Car:</p>

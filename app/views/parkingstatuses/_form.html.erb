@@ -13,7 +13,8 @@
 
   <div class="mb-6">
         <%= form.label :staff_id, class: label_class %>
-          <%= form.text_field :staff_id, class: input_class %>
+        <%= form.select :staff_id, options_from_collection_for_select( Staff.all, 'id', 'name', selected = parkingstatus.staff_id), class: label_class %>
+
       </div>
   <div class="mb-6">
         <%= form.label :available, class: label_class %>
@@ -25,15 +26,16 @@
       </div>
   <div class="mb-6">
         <%= form.label :parkingfee_id, class: label_class %>
-          <%= form.text_field :parkingfee_id, class: input_class %>
+        <%= form.select :parkingfee_id, options_from_collection_for_select( Parkingfee.all, 'id', 'numtime', selected = parkingstatus.parkingfee_id), class: label_class %>
       </div>
   <div class="mb-6">
         <%= form.label :paymentmethod_id, class: label_class %>
-          <%= form.text_field :paymentmethod_id, class: input_class %>
+        <%= form.select :paymentmethod_id, options_from_collection_for_select( Paymentmethod.all, 'id', 'method', selected = parkingstatus.paymentmethod_id), class: label_class %>
       </div>
   <div class="mb-6">
         <%= form.label :customer_id, class: label_class %>
-          <%= form.text_field :customer_id, class: input_class %>
+        <%= form.select :customer_id, options_from_collection_for_select( Customer.all, 'id', 'name', selected = parkingstatus.customer_id), class: label_class %>
+
       </div>
   <div class="mb-6">
         <%= form.label :car, class: label_class %>
