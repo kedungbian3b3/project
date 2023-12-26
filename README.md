@@ -1,6 +1,6 @@
 # README
 
-## GROUP <add-group-name>
+## GROUP 11
 
 - Member 1: Trần Việt Dũng - 21070726
 - Member 2: Nguyễn Phương Uyên - 21070734
